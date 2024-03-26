@@ -22,6 +22,7 @@ router.post('/login', async (req, res) => {
   const { username, password } = req.body;
   const user = await UserModel.findOne({ username });
 
+  // Check if the user exists, returns a boolean
   if(!user) {
     return res.status(400).json({ message: 'Invalid username or password' });
   }
